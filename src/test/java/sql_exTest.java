@@ -16,21 +16,19 @@ public class sql_exTest {
 
         open("http://sql-ex.ru/");
 
-        $("input[type='text']").val("varuna108@yandex.ru");
+        $(byName("login")).setValue("varuna108@yandex.ru");
 
-        $("input[type='password']").val("java_forever").pressEnter();
+        $(byName("psw")).setValue("java_forever").pressEnter();
 
-        $(byXpath("/html/body/table[2]/tbody/tr/td[1]/table[1]/tbody/tr[3]/td/div[1]/a")).click();
+        $x("//div//a//b[contains(text(), 'SQL')]").click();
 
-        $(byXpath("/html/body/table[2]/tbody/tr/td[1]/table[1]/tbody/tr[3]/td/div[2]/pre/a[2]")).click();
+        $("#exe").$(byText("SELECT (обучающий этап)")).click();
 
-        $("select[id='LN']").selectOptionByValue("1");
+        $("#LN").selectOptionByValue("1");
 
-        $("textarea[id='txtsql']").setValue("SELECT model, speed, hd FROM pc WHERE price < 500");
+        $("#txtsql").setValue("SELECT model, speed, hd FROM pc WHERE price < 500");
 
-        $("input[type='submit']").click();
-
-        Configuration.holdBrowserOpen = true;
+        $(byName("cmdanswer")).click();
 
     }
 }
