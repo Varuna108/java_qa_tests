@@ -20,7 +20,7 @@ public class sql_exTest {
 
         $(byName("psw")).setValue("java_forever").pressEnter();
 
-        $x("//div//a//b[contains(text(), 'SQL')]").click();
+        $x("//tr[3]//td//div//a").$(byText("Упражнения по SQL")).click();
 
         $("#exe").$(byText("SELECT (обучающий этап)")).click();
 
