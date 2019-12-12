@@ -2,23 +2,29 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
+
+
 public class sql_exTest {
+
 
     @Test
     @DisplayName("Positive test")
     void positiveTest() {
 
+        Dotenv dotenv = Dotenv.load();
+
         open("http://sql-ex.ru/");
 
-        $(byName("login")).setValue("varuna108@yandex.ru");
+        $(byName("login")).setValue(dotenv.get("Username"));
 
-        $(byName("psw")).setValue("java_forever").pressEnter();
+        $(byName("psw")).setValue(dotenv.get("Password")).pressEnter();
 
         $x("//tr[3]//td//div//a").$(byText("Упражнения по SQL")).click();
 
